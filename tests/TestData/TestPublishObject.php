@@ -1,21 +1,24 @@
 <?php
 
+/*
+ * Copyright (c) Fusonic GmbH. All rights reserved.
+ * Licensed under the MIT License. See LICENSE file in the project root for license information.
+ */
+
+declare(strict_types=1);
+
 namespace Fusonic\OpenGraph\Test\TestData;
 
 use Fusonic\OpenGraph\Objects\ObjectBase;
 use Fusonic\OpenGraph\Property;
 
-class TestPublishObject extends ObjectBase
+final class TestPublishObject extends ObjectBase
 {
-    const KEY = "og:title";
+    public const KEY = 'og:title';
 
-    private $value;
-
-    public function __construct($value)
-    {
-        parent::__construct();
-
-        $this->value = $value;
+    public function __construct(
+        private readonly mixed $value,
+    ) {
     }
 
     public function getProperties(): array
